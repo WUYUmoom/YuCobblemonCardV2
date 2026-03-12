@@ -3,6 +3,7 @@ package com.wuyumoom.yucobblemoncard
 import com.wuyumoom.yucobblemoncard.cmd.Commands
 import com.wuyumoom.yucobblemoncard.config.ConfigManager
 import com.wuyumoom.yucobblemoncard.listener.PluginEvent
+import com.wuyumoom.yucore.api.pokemon.base.YuPokeBall
 import org.bukkit.Bukkit
 import org.bukkit.plugin.java.JavaPlugin
 import java.io.File
