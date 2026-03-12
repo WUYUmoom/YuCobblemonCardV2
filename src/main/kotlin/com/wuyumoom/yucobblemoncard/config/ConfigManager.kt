@@ -39,6 +39,36 @@ object ConfigManager {
                 when (cardType){
                     SYSTEM -> {
                         when (it) {
+                            "任意性格卡"->{
+                                val poke: MutableList<Species> = mutableListOf()
+                                configurationSection.getStringList("use.poke").map {
+                                    poke.add(YuSpecies.getSpecies(it))
+                                }
+                                val newCard = NatureCard(
+                                    type = cardType,
+                                    name = it,
+                                    item = ItemStackAPI.createItem(configurationSection, true),
+                                    filter = UseState.valueOf((configurationSection.getString("use.filter") ?: "").uppercase()),
+                                    poke = poke,
+                                    isRandom = false,
+                                )
+                                card[it] = newCard
+                            }
+                            "随机性格卡"->{
+                                val poke: MutableList<Species> = mutableListOf()
+                                configurationSection.getStringList("use.poke").map {
+                                    poke.add(YuSpecies.getSpecies(it))
+                                }
+                                val newCard = NatureCard(
+                                    type = cardType,
+                                    name = it,
+                                    item = ItemStackAPI.createItem(configurationSection, true),
+                                    filter = UseState.valueOf((configurationSection.getString("use.filter") ?: "").uppercase()),
+                                    poke = poke,
+                                    isRandom = true,
+                                )
+                                card[it] = newCard
+                            }
                             "任意个体值清空卡"->{
                                 val poke: MutableList<Species> = mutableListOf()
                                 configurationSection.getStringList("use.poke").map {

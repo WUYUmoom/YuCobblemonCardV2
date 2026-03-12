@@ -1,0 +1,33 @@
+title: "&8选择修改的个体"
+#任务面板大小
+size: 54
+Button:
+  Pixel:
+    name: "&6%Shiny%&b%pokemon_name%"
+    id: pokemon
+    slot: 4
+    lore:
+      - "&a ▶ &b主人:&f%Owner%"
+      - "&a ▶ &b等级: &f%Level% "
+      - "&a ▶ &b个体信息&f(&e进度: &f%IVS_SUM%&f)"
+      - "&f  ▪ &a血量:&f %IVS_HP% &a攻击:&f %IVS_Attack%"
+      - "&f  ▪ &a速度:&f %IVS_Speed% &a防御:&f %IVS_Defence%"
+      - "&f  ▪ &a特攻:&f %IVS_SpecialAttack% &a特防:&f %IVS_SpecialDefence% "
+      - "&a ▶ &b努力值信息&f(&e进度: &f%EVS_SUM%&f)"
+      - "&f  ▪ &a血量:&f %EVS_HP% &a攻击:&f %EVS_Attack%"
+      - "&f  ▪ &a速度:&f %EVS_Speed% &a防御:&f %EVS_Defence%"
+      - "&f  ▪ &a特攻:&f %EVS_SpecialAttack% &a特防:&f %EVS_SpecialDefence%"
+      - "&a ▶ &b基础信息:"
+      - "&f  ▪ &a闪光: &f%Shiny%&f  ▪ &a体型: &f%Growth%"
+      - "&f  ▪ &a特性: &f%Ability%&f  ▪ &a性别: &f%Gender%"
+      - "&f  ▪ &a性格: &f%Nature%&f  ▪ &a昵称: &f%Nick_Name%"
+      - "&f  ▪ &a携带物: &f%HeldItem%"
+      - "&a ▶ &b技能信息:"
+      - "&f  ▪ &a一技能: &f%Move1%&f  ▪ &a二技能: &f%Move2%"
+      - "&f  ▪ &a三技能: &f%Move3%&f  ▪ &a四技能: &f%Move4%"
+  Nature:
+    name: "&6%Nature%"
+    id: "COBBLEMON_EXP_SHARE"
+    slot: 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33
+    lore:
+      - "&a ▶ &b点击更改性格为%Nature%"
