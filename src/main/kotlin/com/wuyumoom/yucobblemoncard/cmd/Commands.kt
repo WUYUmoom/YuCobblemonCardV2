@@ -59,6 +59,10 @@ object Commands : TabExecutor {
         }
         when(args[0]){
             "give"->{
+                if (!sender.isOp){
+                    sender.sendMessage("§c你没有权限使用此命令")
+                    return true
+                }
                 if (args.size < 3){
                     sender.sendMessage("§c请输入正确的参数")
                     return true
@@ -81,6 +85,10 @@ object Commands : TabExecutor {
                 clone.amount = amount
                 player.inventory.addItem(clone)
                 return true
+            }
+            "reload"->{
+                ConfigManager.reload()
+                sender.sendMessage("§a插件配置已重载")
             }
             "help"->{
                 showHelp(sender)
