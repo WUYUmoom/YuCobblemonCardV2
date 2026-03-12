@@ -63,6 +63,26 @@
     filter: black
     poke:
       - "百变怪"
+满级卡:
+  type: "system"
+  name: '&b满级卡'
+  id: "PAPER"
+  lore:
+    - "&e设置精灵为满级"
+  use:
+    filter: black
+    poke:
+      - "百变怪"
+等级清空卡:
+  type: "system"
+  name: '&b等级清空卡'
+  id: "PAPER"
+  lore:
+    - "&e设置精灵为等级为1"
+  use:
+    filter: black
+    poke:
+      - "百变怪"
 技能卡:
   #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
   type: "move"
@@ -85,3 +105,16 @@
     poke:
       - "百变怪"
 #以下为自定义卡片
+努力值清空卡:
+  #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
+  type: "custom"
+  name: '&b自选技能卡'
+  id: "PAPER"
+  lore:
+    - "&e设置精灵技能"
+  #自定义的效果
+  function: "6evs:0"
+  use:
+    filter: black
+    poke:
+      - "百变怪"

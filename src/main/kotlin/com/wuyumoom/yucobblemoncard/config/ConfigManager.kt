@@ -127,6 +127,36 @@ object ConfigManager {
                                 )
                                 card[it] = newCard
                             }
+                            "满级卡" -> {
+                                val poke: MutableList<Species> = mutableListOf()
+                                configurationSection.getStringList("use.poke").map {
+                                    poke.add(YuSpecies.getSpecies(it))
+                                }
+                                val newCard = LevelCard(
+                                    type = cardType,
+                                    name = it,
+                                    item = ItemStackAPI.createItem(configurationSection, true),
+                                    filter = UseState.valueOf((configurationSection.getString("use.filter") ?: "").uppercase()),
+                                    poke = poke,
+                                    isLevel = true
+                                )
+                                card[it] = newCard
+                            }
+                            "等级清空卡" -> {
+                                val poke: MutableList<Species> = mutableListOf()
+                                configurationSection.getStringList("use.poke").map {
+                                    poke.add(YuSpecies.getSpecies(it))
+                                }
+                                val newCard = LevelCard(
+                                    type = cardType,
+                                    name = it,
+                                    item = ItemStackAPI.createItem(configurationSection, true),
+                                    filter = UseState.valueOf((configurationSection.getString("use.filter") ?: "").uppercase()),
+                                    poke = poke,
+                                    isLevel = false
+                                )
+                                card[it] = newCard
+                            }
                         }
                     }
                     MOVE -> {

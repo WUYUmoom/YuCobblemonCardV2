@@ -3,10 +3,14 @@ package com.wuyumoom.yucobblemoncard.view
 import com.cobblemon.mod.common.api.moves.MoveTemplate
 import com.cobblemon.mod.common.api.moves.Moves
 import com.cobblemon.mod.common.pokemon.Pokemon
+import com.cobblemon.mod.common.util.getPlayer
+import com.cobblemon.mod.common.util.party
+import com.wuyumoom.yucobblemoncard.config.ConfigManager
 import com.wuyumoom.yucobblemoncard.model.MovesCard
 import com.wuyumoom.yucobblemoncard.model.MovesState.*
 import com.wuyumoom.yucore.api.ItemStackAPI
 import com.wuyumoom.yucore.api.pokemon.PokemonAPI
+import com.wuyumoom.yucore.api.pokemon.base.YuMove
 import com.wuyumoom.yucore.api.pokemon.base.YuSprite
 import com.wuyumoom.yucore.file.view.ViewConfiguration
 import com.wuyumoom.yucore.view.AbstractUI
@@ -89,8 +93,7 @@ class MovesGUI(
         } else {
             pokemon.moveSet.forEach {
                 index++
-                val nbt =
-                    ItemStackAPI.setNBT(setMoveItem(button.itemStack.clone(), it.template), "slot", index.toString())
+                val nbt = ItemStackAPI.setNBT(setMoveItem(button.itemStack.clone(), it.template), "slot", index.toString())
                 inventory.setItem(button.slot[index], nbt)
             }
         }
@@ -134,26 +137,22 @@ class MovesGUI(
                 if (page <= 0) {
                     return
                 }
-                MovesGUI(player, configuration, pokemon, item, card, page - 1, int).openInventory(player)
+                MovesGUI(player, configuration, pokemon, item, card, page - 1, this.int).openInventory(player)
                 return
             }
 
             "下一页" -> {
-                MovesGUI(player, configuration, pokemon, item, card, page + 1, int).openInventory(player)
+                MovesGUI(player, configuration, pokemon, item, card, page + 1, this.int).openInventory(player)
                 return
             }
             "Moves" -> {
                 val nbt1 = ItemStackAPI.getNBT(currentItem, "slot")
-                if (nbt1 == null) {
+                if (nbt1 == null  || nbt1.isEmpty()) {
                     val movesName = ItemStackAPI.getNBT(currentItem, "Moves")
-                    if (movesName == null || movesName.isEmpty()){
-                        Bukkit.getConsoleSender().sendMessage("MovesName is null")
-                        return
-                    }
-                    val byName = Moves.getByName(movesName)?:return
-                    pokemon.moveSet.setMove(int,byName.create())
+                    this.int?.let { pokemon.moveSet.setMove(it,YuMove.getMove(movesName)) }
                     item.amount--
                     closeInventory()
+                    ConfigManager.message.sendMessage("use",player)
                 }else{
                     MovesGUI(player, configuration, pokemon, item, card, page + 1, nbt1.toInt()).openInventory(player)
                 }
