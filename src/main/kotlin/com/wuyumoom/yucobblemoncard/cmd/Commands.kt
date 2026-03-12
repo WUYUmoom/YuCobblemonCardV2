@@ -87,6 +87,10 @@ object Commands : TabExecutor {
                 return true
             }
             "reload"->{
+                if (!sender.isOp){
+                    sender.sendMessage("§c你没有权限使用此命令")
+                    return  true
+                }
                 ConfigManager.reload()
                 sender.sendMessage("§a插件配置已重载")
             }
