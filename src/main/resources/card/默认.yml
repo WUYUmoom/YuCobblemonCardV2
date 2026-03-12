@@ -1,0 +1,87 @@
+自选性别卡:
+  #代表插件自带卡片，不可自定义
+  type: "system"
+  name: '&b自选性别卡'
+  id: "PAPER"
+  lore:
+    - "&e设置指定精灵性别"
+  # 过滤方法 [white, black]{白名单 黑名单}
+  use:
+    filter: black
+    poke:
+    - "百变怪"
+6v卡:
+  type: "system"
+  name: '&b6V卡'
+  id: "PAPER"
+  lore:
+    - "&e将全部精灵个体改为6v"
+  view: "队伍"
+  use:
+    filter: black
+    poke:
+      - "百变怪"
+闪光卡:
+  type: "system"
+  name: '&b闪光卡'
+  id: "PAPER"
+  lore:
+    - "&e设置精灵是否闪亮"
+  #打开的界面
+  #卡片的作用
+  use:
+    filter: black
+    poke:
+      - "百变怪"
+解闪光卡:
+  type: "system"
+  name: '&b解闪光卡'
+  id: "PAPER"
+  lore:
+    - "&e取消精灵闪光"
+  use:
+    filter: black
+    poke:
+      - "百变怪"
+自选个体值卡:
+  type: "system"
+  name: '&b自选个体值卡'
+  id: "PAPER"
+  lore:
+    - "&e设置精灵个体值"
+  use:
+    filter: black
+    poke:
+      - "百变怪"
+自选努力值卡:
+  type: "system"
+  name: '&b自选努力值卡'
+  id: "PAPER"
+  lore:
+    - "&e设置精灵努力值"
+  use:
+    filter: black
+    poke:
+      - "百变怪"
+技能卡:
+  #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
+  type: "move"
+  name: '&b自选技能卡'
+  id: "PAPER"
+  lore:
+    - "&e设置精灵技能"
+  #包含的招式
+  move:
+    - "egg"
+    - "tm"
+    - "tutor"
+    - "level"
+    - "legacy"
+    - "special"
+    - "evolution"
+    - "form"
+  use:
+    filter: black
+    poke:
+      - "百变怪"
+#以下为自定义卡片
