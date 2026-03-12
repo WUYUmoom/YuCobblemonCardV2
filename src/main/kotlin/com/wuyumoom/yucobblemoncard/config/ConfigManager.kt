@@ -39,6 +39,38 @@ object ConfigManager {
                 when (cardType){
                     SYSTEM -> {
                         when (it) {
+                            "任意个体值清空卡"->{
+                                val poke: MutableList<Species> = mutableListOf()
+                                configurationSection.getStringList("use.poke").map {
+                                    poke.add(YuSpecies.getSpecies(it))
+                                }
+                                val newCard = StateCard(
+                                    type = cardType,
+                                    name = it,
+                                    item = ItemStackAPI.createItem(configurationSection, true),
+                                    filter = UseState.valueOf((configurationSection.getString("use.filter") ?: "").uppercase()),
+                                    poke = poke,
+                                    pokeState = PokeState.IVS,
+                                    isAdd= false
+                                )
+                                card[it] = newCard
+                            }
+                            "任意努力值清空卡"->{
+                                val poke: MutableList<Species> = mutableListOf()
+                                configurationSection.getStringList("use.poke").map {
+                                    poke.add(YuSpecies.getSpecies(it))
+                                }
+                                val newCard = StateCard(
+                                    type = cardType,
+                                    name = it,
+                                    item = ItemStackAPI.createItem(configurationSection, true),
+                                    filter = UseState.valueOf((configurationSection.getString("use.filter") ?: "").uppercase()),
+                                    poke = poke,
+                                    pokeState = PokeState.EVS,
+                                    isAdd= false
+                                )
+                                card[it] = newCard
+                            }
                             "自选努力值卡"->{
                                 val poke: MutableList<Species> = mutableListOf()
                                 configurationSection.getStringList("use.poke").map {
@@ -50,7 +82,8 @@ object ConfigManager {
                                     item = ItemStackAPI.createItem(configurationSection, true),
                                     filter = UseState.valueOf((configurationSection.getString("use.filter") ?: "").uppercase()),
                                     poke = poke,
-                                    pokeState = PokeState.EVS
+                                    pokeState = PokeState.EVS,
+                                    isAdd= true
                                 )
                                 card[it] = newCard
                             }
@@ -65,7 +98,8 @@ object ConfigManager {
                                     item = ItemStackAPI.createItem(configurationSection, true),
                                     filter = UseState.valueOf((configurationSection.getString("use.filter") ?: "").uppercase()),
                                     poke = poke,
-                                    pokeState = PokeState.IVS
+                                    pokeState = PokeState.IVS,
+                                    isAdd= true
                                 )
                                 card[it] = newCard
                             }

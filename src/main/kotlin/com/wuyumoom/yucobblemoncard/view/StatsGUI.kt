@@ -58,10 +58,18 @@ class StatsGUI (
                 (card.isUse(pokemon) && (isStat(stat,pokemon)))
             }
         ) { poke->
-            if (card.pokeState == PokeState.IVS){
-                poke.setIV(stat,31)
+            if (card.isAdd){
+                if (card.pokeState == PokeState.IVS){
+                    poke.setIV(stat,31)
+                }else{
+                    poke.setEV(stat,252)
+                }
             }else{
-                poke.setEV(stat,252)
+                if (card.pokeState == PokeState.IVS){
+                    poke.setIV(stat,0)
+                }else{
+                    poke.setEV(stat,0)
+                }
             }
             item.amount--
             ConfigManager.message.sendMessage("use",player)
@@ -72,10 +80,18 @@ class StatsGUI (
      * 判断个体是否满足
      */
     private fun isStat(stat: Stat,pokemon: Pokemon): Boolean{
-        return if (card.pokeState == PokeState.IVS){
-            pokemon.ivs.getOrDefault( stat) < 31
+        return if (card.isAdd){
+            if (card.pokeState == PokeState.IVS){
+                pokemon.ivs.getOrDefault( stat) < 31
+            }else{
+                pokemon.evs.getOrDefault( stat) < 252
+            }
         }else{
-            pokemon.evs.getOrDefault( stat) < 252
+            if (card.pokeState == PokeState.IVS){
+                pokemon.ivs.getOrDefault( stat) > 0
+            }else{
+                pokemon.evs.getOrDefault( stat) > 0
+            }
         }
     }
 

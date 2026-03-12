@@ -20,7 +20,8 @@ class StateCard(
     item: ItemStack,
     filter: UseState,
     poke: MutableList<Species>,
-    val pokeState: PokeState
+    val pokeState: PokeState,
+    val isAdd: Boolean
 ): Card(type,name, item, filter, poke) {
     override fun execute(player: Player, item: ItemStack) {
         val configuration = ConfigManager.viewConfigurationMap["StatsGUI"]?:return

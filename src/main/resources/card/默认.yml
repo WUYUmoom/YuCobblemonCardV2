@@ -104,14 +104,47 @@
     filter: black
     poke:
       - "百变怪"
+任意努力值清空卡:
+  #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
+  type: "system"
+  name: '&b任意努力值清空卡'
+  id: "PAPER"
+  lore:
+    - "&e设置精灵努力值为0"
+  use:
+    filter: black
+    poke:
+      - "百变怪"
+任意个体值清空卡:
+  #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
+  type: "system"
+  name: '&b任意个体值清空卡'
+  id: "PAPER"
+  lore:
+    - "&e设置精灵个体值为0"
+  use:
+    filter: black
+    poke:
+      - "百变怪"
+随机性格卡:
+  #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
+  type: "system"
+  name: '&b随机性格卡'
+  id: "PAPER"
+  lore:
+    - "&e设置精灵随机性格"
+  use:
+    filter: black
+    poke:
+      - "百变怪"
 #以下为自定义卡片
 努力值清空卡:
   #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
   type: "custom"
-  name: '&b自选技能卡'
+  name: '&b努力值清空卡'
   id: "PAPER"
   lore:
-    - "&e设置精灵技能"
+    - "&e清空精灵努力值"
   #自定义的效果
   function: "6evs:0"
   use:
