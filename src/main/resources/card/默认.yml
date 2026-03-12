@@ -1,7 +1,7 @@
-自选性别卡:
+任意性别卡:
   #代表插件自带卡片，不可自定义
   type: "system"
-  name: '&b自选性别卡'
+  name: '&b任意性别卡'
   id: "PAPER"
   lore:
     - "&e设置指定精灵性别"
@@ -43,9 +43,9 @@
     filter: black
     poke:
       - "百变怪"
-自选个体值卡:
+任意个体值卡:
   type: "system"
-  name: '&b自选个体值卡'
+  name: '&b任意个体值卡'
   id: "PAPER"
   lore:
     - "&e设置精灵个体值"
@@ -53,9 +53,9 @@
     filter: black
     poke:
       - "百变怪"
-自选努力值卡:
+任意努力值卡:
   type: "system"
-  name: '&b自选努力值卡'
+  name: '&b任意努力值卡'
   id: "PAPER"
   lore:
     - "&e设置精灵努力值"
@@ -144,6 +144,28 @@
   id: "PAPER"
   lore:
     - "&e设置精灵任意性格"
+  use:
+    filter: black
+    poke:
+      - "百变怪"
+任意球种卡:
+  #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
+  type: "system"
+  name: '&b任意球种卡'
+  id: "PAPER"
+  lore:
+    - "&e设置精灵任意球种"
+  use:
+    filter: black
+    poke:
+      - "百变怪"
+随机球种卡:
+  #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
+  type: "system"
+  name: '&b任意球种卡'
+  id: "PAPER"
+  lore:
+    - "&e设置精灵任意球种"
   use:
     filter: black
     poke:
