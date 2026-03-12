@@ -287,6 +287,24 @@ object ConfigManager {
                         )
                         card[it] = newCard
                     }
+                    POKEMON -> {
+                        val poke: MutableList<Species> = mutableListOf()
+                        val loadSpecies = YuSpecies.loadSpecies(configurationSection)
+                        val banPoke = configurationSection.getConfigurationSection("banPoke")
+                        if (banPoke != null){
+                            loadSpecies.removeAll(YuSpecies.loadSpecies(banPoke)   )
+                        }
+                        poke.addAll(loadSpecies)
+                        val newCard = PokemonCard(
+                            type = cardType,
+                            name = it,
+                            item = ItemStackAPI.createItem(configurationSection, true),
+                            filter = UseState.valueOf((configurationSection.getString("use.filter") ?: "black").uppercase()),
+                            poke = poke,
+                            function = configurationSection.getString("function") ?: ""
+                        )
+                        card[it] = newCard
+                    }
                 }
 
             }

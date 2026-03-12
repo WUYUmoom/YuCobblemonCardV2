@@ -13,7 +13,8 @@ import org.bukkit.inventory.ItemStack
 enum class CardType {
     SYSTEM,      // 系统卡片（如性别卡、6V 卡、闪光卡等）
     MOVE,       // 技能卡片（自定义技能卡）
-    CUSTOM       // 自定义卡片（用户自定义功能卡）
+    CUSTOM,       // 自定义卡片（用户自定义功能卡）
+    POKEMON
 
 }
 /**

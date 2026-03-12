@@ -170,6 +170,46 @@
     filter: black
     poke:
       - "百变怪"
+随机普通精灵卡:
+  #特殊卡片，精灵，可自定义，用于创建自定义精灵卡每种卡拥有不同的精灵池
+  type: "pokemon"
+  name: '&b随机普通精灵卡'
+  id: "PAPER"
+  lore:
+    - "&e随机普通精灵卡"
+  #更加标签添加宝可梦，就是拥有该标签的宝可梦添加进去
+  #可添加的标签分别是
+  #mythical 幻兽
+  #restricted 一级神
+  #legendary 神兽
+  #ultra_beast 异兽
+  #fossil 化石宝可梦
+  #powerhouse 准神
+  #paradox 悖论
+  #gen1 第一世代
+  #gen2 第二世代
+  #gen3 第三世代
+  #gen4 第四世代
+  #gen5 第五世代
+  #gen6 第六世代
+  #gen7 第七世代
+  #gen8 第八世代
+  #gen9 第九世代
+  label: 'gen1,gen2,gen3,gen4,gen5,gen6,gen7,gen8,gen9'
+  #以下是宝可梦编号,1@131就是1到131的宝可梦全在
+  speciesDex: 1@131,137@143,147@149,152@195,198@242,246@248,252@376,387@478,494@637,650@715,722@784,810@887,891@904
+  #可重复复制精灵可到达概率
+  species:
+    - '快龙'
+    - 'ivysaur'
+    #禁止出现的宝可梦，禁止的宝可梦将不会被开出，哪怕上方有写,配置与上方一样
+  banPoke:
+    label: 'mythical,legendary,restricted,ultra_beast,paradox'
+    speciesDex:
+    species:
+      - '百变怪'
+  #自定义的效果,可无限自定义
+  function: "交易:false 6v:31"
 #以下为自定义卡片
 努力值清空卡:
   #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
@@ -180,6 +220,32 @@
     - "&e清空精灵努力值"
   #自定义的效果
   function: "6evs:0"
+  use:
+    filter: black
+    poke:
+      - "百变怪"
+绑定卡:
+  #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
+  type: "custom"
+  name: '&b绑定卡'
+  id: "PAPER"
+  lore:
+    - "&e绑定该精灵"
+  #自定义的效果
+  function: "交易:false"
+  use:
+    filter: black
+    poke:
+      - "百变怪"
+解绑卡:
+  #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
+  type: "custom"
+  name: '&b解绑卡'
+  id: "PAPER"
+  lore:
+    - "&e解绑该精灵"
+  #自定义的效果
+  function: "交易:true"
   use:
     filter: black
     poke:
