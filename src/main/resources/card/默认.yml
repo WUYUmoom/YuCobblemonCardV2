@@ -44,21 +44,75 @@
     poke:
       - "百变怪"
 任意个体值卡:
-  type: "system"
+  type: "stats"
   name: '&b任意个体值卡'
   id: "PAPER"
   lore:
     - "&e设置精灵个体值"
+  #添加数值
+  add:
+    #添加属性的类型
+    state: "ivs"
+    #添加的数值类型add是在原基础上添加，ini是固定数值
+    type: "ini"
+    #数值
+    value: 31
   use:
     filter: black
     poke:
       - "百变怪"
 任意努力值卡:
-  type: "system"
+  type: "stats"
   name: '&b任意努力值卡'
   id: "PAPER"
   lore:
     - "&e设置精灵努力值"
+  #添加数值
+  add:
+    #添加属性的类型
+    state: "evs"
+    #添加的数值类型add是在原基础上添加，ini是固定数值
+    type: "ini"
+    #数值
+    value: 252
+  use:
+    filter: black
+    poke:
+      - "百变怪"
+任意努力值清空卡:
+  #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
+  type: "stats"
+  name: '&b任意努力值清空卡'
+  id: "PAPER"
+  lore:
+    - "&e设置精灵努力值为0"
+  #添加数值
+  add:
+    #添加属性的类型
+    state: "evs"
+    #添加的数值类型add是在原基础上添加，ini是固定数值
+    type: "ini"
+    #数值
+    value: 0
+  use:
+    filter: black
+    poke:
+      - "百变怪"
+任意个体值清空卡:
+  #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
+  type: "stats"
+  name: '&b任意个体值清空卡'
+  id: "PAPER"
+  lore:
+    - "&e设置精灵个体值为0"
+  #添加数值
+  add:
+    #添加属性的类型
+    state: "ivs"
+    #添加的数值类型add是在原基础上添加，ini是固定数值
+    type: "ini"
+    #数值
+    value: 0
   use:
     filter: black
     poke:
@@ -100,28 +154,6 @@
     - "special"
     - "evolution"
     - "form"
-  use:
-    filter: black
-    poke:
-      - "百变怪"
-任意努力值清空卡:
-  #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
-  type: "system"
-  name: '&b任意努力值清空卡'
-  id: "PAPER"
-  lore:
-    - "&e设置精灵努力值为0"
-  use:
-    filter: black
-    poke:
-      - "百变怪"
-任意个体值清空卡:
-  #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
-  type: "system"
-  name: '&b任意个体值清空卡'
-  id: "PAPER"
-  lore:
-    - "&e设置精灵个体值为0"
   use:
     filter: black
     poke:
@@ -240,6 +272,24 @@
   id: "PAPER"
   lore:
     - "&e设置精灵任意体型"
+  use:
+    filter: black
+    poke:
+      - "百变怪"
+#是不可遗传的个体添加,可自定义添加
+超训卡:
+  #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
+  type: "stats"
+  name: '&b超训卡'
+  id: "PAPER"
+  lore:
+    - "&e添加精灵额外的个体值"
+  #添加数值
+  add:
+    #添加的数值类型add是在原基础上添加，ini是固定数值
+    type: "add"
+    #数值
+    value: 1
   use:
     filter: black
     poke:

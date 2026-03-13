@@ -4,6 +4,7 @@ import com.cobblemon.mod.common.api.pokemon.stats.Stat
 import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.util.getPlayer
 import com.wuyumoom.yucobblemoncard.config.ConfigManager
+import com.wuyumoom.yucobblemoncard.model.AddState.*
 import com.wuyumoom.yucobblemoncard.model.PokeState
 import com.wuyumoom.yucobblemoncard.model.StateCard
 import com.wuyumoom.yucore.api.ItemStackAPI
@@ -59,9 +60,25 @@ class StatsGUI (
         ) { poke->
             if (card.isAdd){
                 if (card.pokeState == PokeState.IVS){
-                    poke.setIV(stat,31)
+                    when(card.addState){
+                        ADD -> {
+                            val orDefault = poke.ivs.getOrDefault(stat)
+                            poke.setIV(stat,card.value+orDefault)
+                        }
+                        INI ->{
+                            poke.setIV(stat,card.value)
+                        }
+                    }
                 }else{
-                    poke.setEV(stat,252)
+                    when(card.addState){
+                        ADD -> {
+                            val orDefault = poke.ivs.getOrDefault(stat)
+                            poke.setEV(stat,card.value+orDefault)
+                        }
+                        INI ->{
+                            poke.setEV(stat,card.value)
+                        }
+                    }
                 }
             }else{
                 if (card.pokeState == PokeState.IVS){

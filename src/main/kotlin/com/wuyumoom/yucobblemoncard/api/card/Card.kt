@@ -14,9 +14,11 @@ enum class CardType {
     SYSTEM,      // 系统卡片（如性别卡、6V 卡、闪光卡等）
     MOVE,       // 技能卡片（自定义技能卡）
     CUSTOM,       // 自定义卡片（用户自定义功能卡）
-    POKEMON
+    POKEMON,     // 宝可梦卡片（自定义宝可梦卡）
+    STATS     // STATS卡片（自定义训练卡）
 
 }
+
 /**
  * 筛选模式
  */
@@ -25,6 +27,7 @@ enum class UseState {
     BLACK,
 
 }
+
 abstract class Card(
     var type: CardType,
     var name: String,
@@ -47,5 +50,5 @@ abstract class Card(
     /**
      * 实现方法
      */
-    abstract fun execute(player: Player,item: ItemStack)
+    abstract fun execute(player: Player, item: ItemStack)
 }
