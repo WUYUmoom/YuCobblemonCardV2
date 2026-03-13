@@ -84,7 +84,7 @@ class StatsGUI (
             if (card.pokeState == PokeState.IVS){
                 pokemon.ivs.getOrDefault( stat) < 31
             }else{
-                pokemon.evs.getOrDefault( stat) < 252
+                pokemon.evs.getOrDefault( stat) < 252 && getIsEvs(pokemon)
             }
         }else{
             if (card.pokeState == PokeState.IVS){
@@ -93,6 +93,16 @@ class StatsGUI (
                 pokemon.evs.getOrDefault( stat) > 0
             }
         }
+    }
+    private fun getIsEvs(pokemon: Pokemon): Boolean{
+        var i = 0
+        YuStats.getStats().values.forEach {
+            val orDefault = pokemon.evs.getOrDefault(it)
+            if (orDefault >= 252){
+                i++
+            }
+        }
+        return i < 2
     }
 
 }
