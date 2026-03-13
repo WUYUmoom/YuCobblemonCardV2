@@ -39,6 +39,20 @@ object ConfigManager {
                 when (cardType){
                     SYSTEM -> {
                         when (it) {
+                            "形态卡"->{
+                                val poke: MutableList<Species> = mutableListOf()
+                                configurationSection.getStringList("use.poke").map {
+                                    poke.add(YuSpecies.getSpecies(it))
+                                }
+                                val newCard = FormsCard(
+                                    type = cardType,
+                                    name = it,
+                                    item = ItemStackAPI.createItem(configurationSection, true),
+                                    filter = UseState.valueOf((configurationSection.getString("use.filter") ?: "").uppercase()),
+                                    poke = poke,
+                                )
+                                card[it] = newCard
+                            }
                             "随机体型卡"->{
                                 val poke: MutableList<Species> = mutableListOf()
                                 configurationSection.getStringList("use.poke").map {

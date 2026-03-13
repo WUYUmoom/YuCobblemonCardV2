@@ -85,6 +85,21 @@ class GrowthGUI (
     override fun onClick(int: Int, event: InventoryClickEvent) {
         event.isCancelled = true
         val currentItem = event.currentItem ?: return
+        val nbt = ItemStackAPI.getNBT(currentItem, "yubutton")
+        when (nbt) {
+            "上一页" -> {
+                if (page <= 0) {
+                    return
+                }
+                GrowthGUI(player, configuration, pokemon, item, page - 1).openInventory(player)
+                return
+            }
+
+            "下一页" -> {
+                GrowthGUI(player, configuration, pokemon, item, page + 1).openInventory(player)
+                return
+            }
+        }
         val growth = ItemStackAPI.getNBT(currentItem, "growth")
         if (growth != null && !growth.isEmpty()){
             val instance = PokemonLabel.getInstance(pokemon)
