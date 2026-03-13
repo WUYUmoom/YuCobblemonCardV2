@@ -33,6 +33,9 @@ class FormsGUI (
         val button = configuration.button["Forms"] ?: return
         var index = -1
         pokemon.species.forms.forEach {
+            if (pokemon.form.formOnlyShowdownId() == it.formOnlyShowdownId()){
+                return@forEach
+            }
             index++
             val create = it.species.create(10)
             create.form = it
