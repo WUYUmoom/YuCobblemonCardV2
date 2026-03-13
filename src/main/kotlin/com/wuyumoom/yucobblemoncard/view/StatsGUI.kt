@@ -3,7 +3,6 @@ package com.wuyumoom.yucobblemoncard.view
 import com.cobblemon.mod.common.api.pokemon.stats.Stat
 import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.util.getPlayer
-import com.wuyumoom.yucobblemoncard.api.card.Card
 import com.wuyumoom.yucobblemoncard.config.ConfigManager
 import com.wuyumoom.yucobblemoncard.model.PokeState
 import com.wuyumoom.yucobblemoncard.model.StateCard
