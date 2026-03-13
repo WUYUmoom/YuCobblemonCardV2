@@ -378,7 +378,7 @@ object ConfigManager {
                                 filter = UseState.valueOf((configurationSection.getString("use.filter") ?: "").uppercase()),
                                 poke = poke,
                                 pokeState = PokeState.valueOf((configurationSection.getString("add.state") ?: "").uppercase()),
-                                isAdd= true,
+                                isAdd= configurationSection.getBoolean("add.isAdd"),
                                 addState = AddState.valueOf((configurationSection.getString("add.type") ?: "").uppercase()),
                                 value = configurationSection.getInt("add.value")
                             )

@@ -4,9 +4,9 @@ import com.cobblemon.mod.common.api.pokemon.stats.Stat
 import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.util.getPlayer
 import com.wuyumoom.yucobblemoncard.config.ConfigManager
-import com.wuyumoom.yucobblemoncard.model.AddState.*
+import com.wuyumoom.yucobblemoncard.model.AddState.ADD
+import com.wuyumoom.yucobblemoncard.model.AddState.INI
 import com.wuyumoom.yucobblemoncard.model.HyperTrainCard
-import com.wuyumoom.yucobblemoncard.model.PokeState
 import com.wuyumoom.yucore.api.ItemStackAPI
 import com.wuyumoom.yucore.api.pokemon.base.YuStats
 import com.wuyumoom.yucore.api.pokemon.openPartyWithCallback
@@ -79,7 +79,6 @@ class HyperTrainGUI(
     private fun isStat(stat: Stat, pokemon: Pokemon): Boolean {
         val i = pokemon.ivs.hyperTrainedIVs[stat] ?: 0
         return 31 > i
-
     }
 
 }
