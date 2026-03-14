@@ -1,5 +1,6 @@
 package com.wuyumoom.yucobblemoncard.model
 
+import com.cobblemon.mod.common.pokemon.Gender
 import com.cobblemon.mod.common.pokemon.Pokemon
 import com.cobblemon.mod.common.pokemon.Species
 import com.cobblemon.mod.common.util.getPlayer
@@ -29,7 +30,7 @@ class GenderCard(
         val serverPlayer = player.uniqueId.getPlayer()?:return
         serverPlayer.openPartyWithCallback(
             hoverText = ConfigManager.tip,
-            enabled = { pokemon -> isUse(pokemon) }
+            enabled = { pokemon -> (isUse(pokemon)&& pokemon.gender != Gender.GENDERLESS) }
         ) { poke->
             val configuration = ConfigManager.viewConfigurationMap["GenderGUI"]?:return@openPartyWithCallback
             GenderGUI(player, configuration, poke,item).openInventory(player)
