@@ -9,7 +9,35 @@
   use:
     filter: black
     poke:
-    - "百变怪"
+      #更加标签添加宝可梦，就是拥有该标签的宝可梦添加进去
+      #可添加的标签分别是
+      #mythical 幻兽
+      #restricted 一级神
+      #legendary 神兽
+      #ultra_beast 异兽
+      #fossil 化石宝可梦
+      #powerhouse 准神
+      #paradox 悖论
+      #gen1 第一世代
+      #gen2 第二世代
+      #gen3 第三世代
+      #gen4 第四世代
+      #gen5 第五世代
+      #gen6 第六世代
+      #gen7 第七世代
+      #gen8 第八世代
+      #gen9 第九世代
+      label: ''
+      #以下是宝可梦编号,1@131就是1到131的宝可梦全在
+      speciesDex:
+      #可重复复制精灵可到达概率
+      species:
+        - '百变怪'
+        #禁止出现的宝可梦，禁止的宝可梦将不会被开出，哪怕上方有写,配置与上方一样
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 6v卡:
   type: "system"
   name: '&b6V卡'
@@ -20,7 +48,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 闪光卡:
   type: "system"
   name: '&b闪光卡'
@@ -32,7 +67,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 解闪光卡:
   type: "system"
   name: '&b解闪光卡'
@@ -42,7 +84,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 个体值卡:
   type: "stats"
   name: '&b任意个体值卡'
@@ -62,7 +111,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 努力值卡:
   type: "stats"
   name: '&b任意努力值卡'
@@ -82,7 +138,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 努力值清空卡:
   #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
   type: "stats"
@@ -103,7 +166,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 个体值清空卡:
   #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
   type: "stats"
@@ -124,7 +194,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 满级卡:
   type: "system"
   name: '&b满级卡'
@@ -134,7 +211,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 等级清空卡:
   type: "system"
   name: '&b等级清空卡'
@@ -144,7 +228,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 技能卡:
   #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
   type: "move"
@@ -165,7 +256,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 随机性格卡:
   #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
   type: "system"
@@ -176,7 +274,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 性格卡:
   #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
   type: "system"
@@ -187,7 +292,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 球种卡:
   #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
   type: "system"
@@ -198,7 +310,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 随机球种卡:
   #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
   type: "system"
@@ -209,7 +328,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 随机普通精灵卡:
   #特殊卡片，精灵，可自定义，用于创建自定义精灵卡每种卡拥有不同的精灵池
   type: "pokemon"
@@ -261,7 +387,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 体型卡:
   #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
   type: "system"
@@ -272,7 +405,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 形态卡:
   #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
   type: "system"
@@ -283,7 +423,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 #是不可遗传的个体添加,可自定义添加
 超训卡:
   #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
@@ -301,7 +448,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 #以下为自定义卡片
 绑定卡:
   #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
@@ -315,7 +469,14 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:
 解绑卡:
   #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
   type: "custom"
@@ -328,4 +489,11 @@
   use:
     filter: black
     poke:
-      - "百变怪"
+      label: ''
+      speciesDex:
+      species:
+        - "百变怪"
+      banPoke:
+        label: ''
+        speciesDex:
+        species:

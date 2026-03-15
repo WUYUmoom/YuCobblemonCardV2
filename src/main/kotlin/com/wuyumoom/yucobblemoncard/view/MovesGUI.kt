@@ -35,7 +35,7 @@ class MovesGUI(
     override fun draw() {
         inventory.clear()
         configuration.button.forEach {
-            if (it.key == "Pixel" || it.key == "Moves") {
+            if (it.key == "Pixel" || it.key == "Moves" || it.key == "PokeMoves") {
                 return@forEach
             }
             setItem(it.value.slot, it.value.itemStack)
@@ -93,6 +93,7 @@ class MovesGUI(
                 inventory.setItem(slot, setMoveItem(button.itemStack.clone(), moves,button))
             }
         } else {
+            val button = configuration.button["PokeMoves"] ?: return
             pokemon.moveSet.forEach {
                 index++
                 val nbt =

@@ -14,6 +14,7 @@ import com.wuyumoom.yucore.api.Message
 import com.wuyumoom.yucore.api.pokemon.base.YuSpecies
 import com.wuyumoom.yucore.file.view.ViewConfiguration
 import org.bukkit.Material
+import org.bukkit.configuration.ConfigurationSection
 import org.bukkit.configuration.file.YamlConfiguration
 
 object ConfigManager {
@@ -55,10 +56,11 @@ object ConfigManager {
                     SYSTEM -> {
                         when (it) {
                             "形态卡"->{
-                                val poke: MutableList<Species> = mutableListOf()
-                                configurationSection.getStringList("use.poke").map {
-                                    poke.add(YuSpecies.getSpecies(it))
+                                val configurationSection = configurationSection.getConfigurationSection("use.poke")
+                                if (configurationSection == null){
+                                    return@forEach
                                 }
+                                val poke: MutableList<Species> = loadPoke(configurationSection)
                                 val newCard = FormsCard(
                                     type = cardType,
                                     name = it,
@@ -69,10 +71,11 @@ object ConfigManager {
                                 card[it] = newCard
                             }
                             "随机体型卡"->{
-                                val poke: MutableList<Species> = mutableListOf()
-                                configurationSection.getStringList("use.poke").map {
-                                    poke.add(YuSpecies.getSpecies(it))
+                                val configurationSection = configurationSection.getConfigurationSection("use.poke")
+                                if (configurationSection == null){
+                                    return@forEach
                                 }
+                                val poke: MutableList<Species> = loadPoke(configurationSection)
                                 val newCard = GrowthCard(
                                     type = cardType,
                                     name = it,
@@ -84,10 +87,11 @@ object ConfigManager {
                                 card[it] = newCard
                             }
                             "体型卡"->{
-                                val poke: MutableList<Species> = mutableListOf()
-                                configurationSection.getStringList("use.poke").map {
-                                    poke.add(YuSpecies.getSpecies(it))
+                                val configurationSection = configurationSection.getConfigurationSection("use.poke")
+                                if (configurationSection == null){
+                                    return@forEach
                                 }
+                                val poke: MutableList<Species> = loadPoke(configurationSection)
                                 val newCard = GrowthCard(
                                     type = cardType,
                                     name = it,
@@ -99,10 +103,11 @@ object ConfigManager {
                                 card[it] = newCard
                             }
                             "随机球种卡"->{
-                                val poke: MutableList<Species> = mutableListOf()
-                                configurationSection.getStringList("use.poke").map {
-                                    poke.add(YuSpecies.getSpecies(it))
+                                val configurationSection = configurationSection.getConfigurationSection("use.poke")
+                                if (configurationSection == null){
+                                    return@forEach
                                 }
+                                val poke: MutableList<Species> = loadPoke(configurationSection)
                                 val newCard = PokeBallCard(
                                     type = cardType,
                                     name = it,
@@ -114,10 +119,11 @@ object ConfigManager {
                                 card[it] = newCard
                             }
                             "球种卡"->{
-                                val poke: MutableList<Species> = mutableListOf()
-                                configurationSection.getStringList("use.poke").map {
-                                    poke.add(YuSpecies.getSpecies(it))
+                                val configurationSection = configurationSection.getConfigurationSection("use.poke")
+                                if (configurationSection == null){
+                                    return@forEach
                                 }
+                                val poke: MutableList<Species> = loadPoke(configurationSection)
                                 val newCard = PokeBallCard(
                                     type = cardType,
                                     name = it,
@@ -129,10 +135,11 @@ object ConfigManager {
                                 card[it] = newCard
                             }
                             "性格卡"->{
-                                val poke: MutableList<Species> = mutableListOf()
-                                configurationSection.getStringList("use.poke").map {
-                                    poke.add(YuSpecies.getSpecies(it))
+                                val configurationSection = configurationSection.getConfigurationSection("use.poke")
+                                if (configurationSection == null){
+                                    return@forEach
                                 }
+                                val poke: MutableList<Species> = loadPoke(configurationSection)
                                 val newCard = NatureCard(
                                     type = cardType,
                                     name = it,
@@ -144,10 +151,11 @@ object ConfigManager {
                                 card[it] = newCard
                             }
                             "随机性格卡"->{
-                                val poke: MutableList<Species> = mutableListOf()
-                                configurationSection.getStringList("use.poke").map {
-                                    poke.add(YuSpecies.getSpecies(it))
+                                val configurationSection = configurationSection.getConfigurationSection("use.poke")
+                                if (configurationSection == null){
+                                    return@forEach
                                 }
+                                val poke: MutableList<Species> = loadPoke(configurationSection)
                                 val newCard = NatureCard(
                                     type = cardType,
                                     name = it,
@@ -159,10 +167,11 @@ object ConfigManager {
                                 card[it] = newCard
                             }
                             "6v卡"->{
-                                val poke: MutableList<Species> = mutableListOf()
-                                configurationSection.getStringList("use.poke").map {
-                                    poke.add(YuSpecies.getSpecies(it))
+                                val configurationSection = configurationSection.getConfigurationSection("use.poke")
+                                if (configurationSection == null){
+                                    return@forEach
                                 }
+                                val poke: MutableList<Species> = loadPoke(configurationSection)
                                 val newCard = IVS6Card(
                                     type = cardType,
                                     name = it,
@@ -173,10 +182,11 @@ object ConfigManager {
                                 card[it] = newCard
                             }
                             "解闪光卡" -> {
-                                val poke: MutableList<Species> = mutableListOf()
-                                configurationSection.getStringList("use.poke").map {
-                                    poke.add(YuSpecies.getSpecies(it))
+                                val configurationSection = configurationSection.getConfigurationSection("use.poke")
+                                if (configurationSection == null){
+                                    return@forEach
                                 }
+                                val poke: MutableList<Species> = loadPoke(configurationSection)
                                 val newCard = ShinyCard(
                                     type = cardType,
                                     name = it,
@@ -188,10 +198,11 @@ object ConfigManager {
                                 card[it] = newCard
                             }
                             "闪光卡" -> {
-                                val poke: MutableList<Species> = mutableListOf()
-                                configurationSection.getStringList("use.poke").map {
-                                    poke.add(YuSpecies.getSpecies(it))
+                                val configurationSection = configurationSection.getConfigurationSection("use.poke")
+                                if (configurationSection == null){
+                                    return@forEach
                                 }
+                                val poke: MutableList<Species> = loadPoke(configurationSection)
                                 val newCard = ShinyCard(
                                     type = cardType,
                                     name = it,
@@ -203,10 +214,11 @@ object ConfigManager {
                                 card[it] = newCard
                             }
                             "性别卡" -> {
-                                val poke: MutableList<Species> = mutableListOf()
-                                configurationSection.getStringList("use.poke").map {
-                                    poke.add(YuSpecies.getSpecies(it))
+                                val configurationSection = configurationSection.getConfigurationSection("use.poke")
+                                if (configurationSection == null){
+                                    return@forEach
                                 }
+                                val poke: MutableList<Species> = loadPoke(configurationSection)
                                 val newCard = GenderCard(
                                     type = cardType,
                                     name = it,
@@ -217,10 +229,11 @@ object ConfigManager {
                                 card[it] = newCard
                             }
                             "满级卡" -> {
-                                val poke: MutableList<Species> = mutableListOf()
-                                configurationSection.getStringList("use.poke").map {
-                                    poke.add(YuSpecies.getSpecies(it))
+                                val configurationSection = configurationSection.getConfigurationSection("use.poke")
+                                if (configurationSection == null){
+                                    return@forEach
                                 }
+                                val poke: MutableList<Species> = loadPoke(configurationSection)
                                 val newCard = LevelCard(
                                     type = cardType,
                                     name = it,
@@ -232,10 +245,11 @@ object ConfigManager {
                                 card[it] = newCard
                             }
                             "等级清空卡" -> {
-                                val poke: MutableList<Species> = mutableListOf()
-                                configurationSection.getStringList("use.poke").map {
-                                    poke.add(YuSpecies.getSpecies(it))
+                                val configurationSection = configurationSection.getConfigurationSection("use.poke")
+                                if (configurationSection == null){
+                                    return@forEach
                                 }
+                                val poke: MutableList<Species> = loadPoke(configurationSection)
                                 val newCard = LevelCard(
                                     type = cardType,
                                     name = it,
@@ -249,10 +263,11 @@ object ConfigManager {
                         }
                     }
                     MOVE -> {
-                        val poke: MutableList<Species> = mutableListOf()
-                        configurationSection.getStringList("use.poke").map {
-                            poke.add(YuSpecies.getSpecies(it))
+                        val configurationSection = configurationSection.getConfigurationSection("use.poke")
+                        if (configurationSection == null){
+                            return@forEach
                         }
+                        val poke: MutableList<Species> = loadPoke(configurationSection)
                         val move: MutableList<MovesState> = mutableListOf()
                         configurationSection.getStringList("move").map {
                             move.add(MovesState.valueOf(it.uppercase()))
@@ -268,10 +283,11 @@ object ConfigManager {
                         card[it] = newCard
                     }
                     CUSTOM -> {
-                        val poke: MutableList<Species> = mutableListOf()
-                        configurationSection.getStringList("use.poke").map {
-                            poke.add(YuSpecies.getSpecies(it))
+                        val configurationSection = configurationSection.getConfigurationSection("use.poke")
+                        if (configurationSection == null){
+                            return@forEach
                         }
+                        val poke: MutableList<Species> = loadPoke(configurationSection)
                         val newCard = CustomCard(
                             type = cardType,
                             name = it,
@@ -283,13 +299,11 @@ object ConfigManager {
                         card[it] = newCard
                     }
                     POKEMON -> {
-                        val poke: MutableList<Species> = mutableListOf()
-                        val loadSpecies = YuSpecies.loadSpecies(configurationSection)
-                        val banPoke = configurationSection.getConfigurationSection("banPoke")
-                        if (banPoke != null){
-                            loadSpecies.removeAll(YuSpecies.loadSpecies(banPoke)   )
+                        val configurationSection = configurationSection.getConfigurationSection("use.poke")
+                        if (configurationSection == null){
+                            return@forEach
                         }
-                        poke.addAll(loadSpecies)
+                        val poke: MutableList<Species> = loadPoke(configurationSection)
                         val newCard = PokemonCard(
                             type = cardType,
                             name = it,
@@ -303,10 +317,11 @@ object ConfigManager {
                     STATS -> {
                         when (it) {
                             "超训卡" -> {
-                                val poke: MutableList<Species> = mutableListOf()
-                                configurationSection.getStringList("use.poke").map {
-                                    poke.add(YuSpecies.getSpecies(it))
+                                val configurationSection = configurationSection.getConfigurationSection("use.poke")
+                                if (configurationSection == null){
+                                    return@forEach
                                 }
+                                val poke: MutableList<Species> = loadPoke(configurationSection)
                                 val newCard = HyperTrainCard(
                                     type = cardType,
                                     name = it,
@@ -317,11 +332,13 @@ object ConfigManager {
                                     value = configurationSection.getInt("add.value")
                                 )
                                 card[it] = newCard
-                            }else -> {
-                            val poke: MutableList<Species> = mutableListOf()
-                            configurationSection.getStringList("use.poke").map {
-                                poke.add(YuSpecies.getSpecies(it))
                             }
+                            else -> {
+                            val configurationSection = configurationSection.getConfigurationSection("use.poke")
+                            if (configurationSection == null){
+                                return@forEach
+                            }
+                            val poke: MutableList<Species> = loadPoke(configurationSection)
                             val newCard = StateCard(
                                 type = cardType,
                                 name = it,
@@ -343,6 +360,19 @@ object ConfigManager {
             }
         }
     }
+
+
+    private fun loadPoke(configurationSection: ConfigurationSection): MutableList<Species>{
+        val poke: MutableList<Species> = mutableListOf()
+        val loadSpecies = YuSpecies.loadSpecies(configurationSection)
+        val banPoke = configurationSection.getConfigurationSection("banPoke")
+        if (banPoke != null){
+            loadSpecies.removeAll(YuSpecies.loadSpecies(banPoke)   )
+        }
+        poke.addAll(loadSpecies)
+        return poke
+    }
+
     fun reload() {
         tip.clear()
         card.clear()
