@@ -156,8 +156,7 @@ class MovesGUI(
                 MovesGUI(player, configuration, pokemon, item, card, page + 1, this.int).openInventory(player)
                 return
             }
-
-            "Moves" -> {
+            "Moves","PokeMoves" -> {
                 val nbt1 = ItemStackAPI.getNBT(currentItem, "slot")
                 if (nbt1 == null || nbt1.isEmpty()) {
                     val movesName = ItemStackAPI.getNBT(currentItem, "Moves")

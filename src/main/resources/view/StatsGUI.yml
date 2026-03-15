@@ -30,8 +30,8 @@ Button:
     lore:
       - "&a ▶ &b点击更改速度个体"
     enchantment: true
-  特功:
-    name: "&6特功"
+  特攻:
+    name: "&6特攻"
     id: "COBBLEMON_EXP_SHARE"
     slot: 14
     lore:
