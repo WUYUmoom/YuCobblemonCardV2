@@ -7,7 +7,6 @@ import com.wuyumoom.yucobblemoncard.api.card.CardType
 import com.wuyumoom.yucobblemoncard.api.card.UseState
 import com.wuyumoom.yucobblemoncard.config.ConfigManager
 import com.wuyumoom.yucobblemoncard.view.FormsGUI
-import com.wuyumoom.yucobblemoncard.view.GenderGUI
 import com.wuyumoom.yucore.api.pokemon.openPartyWithCallback
 import org.bukkit.entity.Player
 import org.bukkit.inventory.ItemStack

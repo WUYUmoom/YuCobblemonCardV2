@@ -55,11 +55,13 @@ class GenderGUI(
                 pokemon.gender = Gender.FEMALE
                 ConfigManager.message.sendMessage("use", player)
                 item.amount--
+                closeInventory()
                 return
             }
             "性别雄"->{
                 pokemon.gender = Gender.MALE
                 ConfigManager.message.sendMessage("use", player)
+                closeInventory()
                 item.amount--
                 return
             }
