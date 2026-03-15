@@ -24,6 +24,7 @@ object ConfigManager {
     var message: Message = Message(config)
 
     lateinit var movesGUIDefaultID : Material
+    lateinit var NatureGUIDefaultID : Material
 
     fun load() {
         config.getStringList("tip").map {
@@ -38,6 +39,11 @@ object ConfigManager {
                 val string = loadConfiguration.getString("defaultID")?: "STICK"
                 var material = Material.getMaterial( string)
                 movesGUIDefaultID = material ?: Material.STICK
+            }
+            if (replace == "NatureGUI"){
+                val string = loadConfiguration.getString("defaultID")?: "STICK"
+                var material = Material.getMaterial( string)
+                NatureGUIDefaultID = material ?: Material.STICK
             }
         }
         FileAPI.folderFiles(YuCobblemonCard.INSTANCE, "card", YuCobblemonCard.pluginFile).forEach {
