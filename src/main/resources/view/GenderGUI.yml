@@ -25,21 +25,25 @@ Button:
       - "&a ▶ &b技能信息:"
       - "&f  ▪ &a一技能: &f%Move1%&f  ▪ &a二技能: &f%Move2%"
       - "&f  ▪ &a三技能: &f%Move3%&f  ▪ &a四技能: &f%Move4%"
+    enchantment: true
   性别雌:
     name: "&6性别雌"
     id: "COBBLEMON_EXP_SHARE"
     slot: 10
     lore:
       - "&a ▶ &b点击更改性别为: &f性别雌"
+    enchantment: true
   性别雄:
     name: "&6性别雄"
     id: "COBBLEMON_EXP_SHARE"
     slot: 11
     lore:
       - "&a ▶ &b点击更改性别为: &f性别雄"
+    enchantment: true
   装饰:
     name: "&b装饰"
     id: "GLASS_PANE"
     # 任务所在位置
     slot: 0,1,2,3,4,5,6,7,8,9,17,18,26,27,28,29,30,31,32,33,34,35
     lore:
+    enchantment: true

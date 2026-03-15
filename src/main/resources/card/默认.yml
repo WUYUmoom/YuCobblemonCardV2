@@ -44,7 +44,6 @@
   id: "PAPER"
   lore:
     - "&e将全部精灵个体改为6v"
-  view: "队伍"
   use:
     filter: black
     poke:
@@ -431,10 +430,10 @@
         label: ''
         speciesDex:
         species:
-#是不可遗传的个体添加,可自定义添加
+#是不可遗传的个体添加
 超训卡:
   #特殊卡片，技能卡，可自定义，用于创建自定义技能卡
-  type: "stats"
+  type: "hypertrain"
   name: '&b超训卡'
   id: "PAPER"
   lore:

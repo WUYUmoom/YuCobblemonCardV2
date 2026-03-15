@@ -8,39 +8,46 @@ Button:
     slot: 10
     lore:
       - "&a ▶ &b点击更改血量个体"
+    enchantment: true
   攻击:
     name: "&6攻击"
     id: "COBBLEMON_EXP_SHARE"
     slot: 11
     lore:
       - "&a ▶ &b点击更改攻击个体"
+    enchantment: true
   防御:
     name: "&6防御"
     id: "COBBLEMON_EXP_SHARE"
     slot: 12
     lore:
       - "&a ▶ &b点击更改防御个体"
+    enchantment: true
   速度:
     name: "&6速度"
     id: "COBBLEMON_EXP_SHARE"
     slot: 13
     lore:
       - "&a ▶ &b点击更改速度个体"
+    enchantment: true
   特功:
     name: "&6特功"
     id: "COBBLEMON_EXP_SHARE"
     slot: 14
     lore:
       - "&a ▶ &b点击更改特功个体"
+    enchantment: true
   特防:
     name: "&6特防"
     id: "COBBLEMON_EXP_SHARE"
     slot: 15
     lore:
       - "&a ▶ &b点击更改特防个体"
+    enchantment: true
   装饰:
     name: "&b装饰"
     id: "GLASS_PANE"
     # 任务所在位置
     slot: 0,1,2,3,4,5,6,7,8,9,17,18,26,27,28,29,30,31,32,33,34,35
     lore:
+    enchantment: true

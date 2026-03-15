@@ -15,8 +15,8 @@ enum class CardType {
     MOVE,       // 技能卡片（自定义技能卡）
     CUSTOM,       // 自定义卡片（用户自定义功能卡）
     POKEMON,     // 宝可梦卡片（自定义宝可梦卡）
-    STATS     // STATS卡片（自定义训练卡）
-
+    STATS,     // STATS卡片（自定义训练卡）
+    HYPERTRAIN
 }
 
 /**

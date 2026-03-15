@@ -25,9 +25,11 @@ Button:
       - "&a ▶ &b技能信息:"
       - "&f  ▪ &a一技能: &f%Move1%&f  ▪ &a二技能: &f%Move2%"
       - "&f  ▪ &a三技能: &f%Move3%&f  ▪ &a四技能: &f%Move4%"
+    enchantment: true
   Forms:
     name: "&6%Forms%"
     id: "pokemon"
     slot: 9,10,11,12,13,14
     lore:
       - "&a ▶ &b点击修改形态为%Forms%"
+    enchantment: true

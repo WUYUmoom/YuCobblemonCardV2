@@ -27,27 +27,32 @@ Button:
       - "&a ▶ &b技能信息:"
       - "&f  ▪ &a一技能: &f%Move1%&f  ▪ &a二技能: &f%Move2%"
       - "&f  ▪ &a三技能: &f%Move3%&f  ▪ &a四技能: &f%Move4%"
+    enchantment: true
   Moves:
     name: "&6%Moves%"
     id: "SIMPLETMS_TM_%Moves%"
     slot: 9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44
     lore:
       - "&a ▶ &b点击更改%Moves%"
+    enchantment: true
   PokeMoves:
     name: "&6%Moves%"
     id: "SIMPLETMS_TM_%Moves%"
     slot: 9,10,11,12
     lore:
       - "&a ▶ &b点击更改%Moves%"
+    enchantment: true
   上一页:
     name: "&e上一页"
     id: "PAPER"
     slot: 45
     lore:
       - "&e上一页"
+    enchantment: true
   下一页:
     name: "&e下一页"
     id: "PAPER"
     slot: 53
     lore:
       - "&e下一页"
+    enchantment: true
