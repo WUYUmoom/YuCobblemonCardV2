@@ -63,7 +63,7 @@ class NatureGUI(
     private fun getMaterial(nature: Nature, button: Button):Material {
         val id = button.id.replace("%Nature%", nature.name.path).uppercase()
         val material = Material.getMaterial(id)
-        return material ?: ConfigManager.movesGUIDefaultID
+        return material ?: ConfigManager.NatureGUIDefaultID
     }
 
     private fun setItem(slot: IntArray, itemStack: ItemStack) {

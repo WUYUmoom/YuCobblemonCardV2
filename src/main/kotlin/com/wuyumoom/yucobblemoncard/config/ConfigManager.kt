@@ -83,7 +83,7 @@ object ConfigManager {
                                 )
                                 card[it] = newCard
                             }
-                            "任意体型卡"->{
+                            "体型卡"->{
                                 val poke: MutableList<Species> = mutableListOf()
                                 configurationSection.getStringList("use.poke").map {
                                     poke.add(YuSpecies.getSpecies(it))
@@ -113,7 +113,7 @@ object ConfigManager {
                                 )
                                 card[it] = newCard
                             }
-                            "任意球种卡"->{
+                            "球种卡"->{
                                 val poke: MutableList<Species> = mutableListOf()
                                 configurationSection.getStringList("use.poke").map {
                                     poke.add(YuSpecies.getSpecies(it))
@@ -128,7 +128,7 @@ object ConfigManager {
                                 )
                                 card[it] = newCard
                             }
-                            "任意性格卡"->{
+                            "性格卡"->{
                                 val poke: MutableList<Species> = mutableListOf()
                                 configurationSection.getStringList("use.poke").map {
                                     poke.add(YuSpecies.getSpecies(it))
@@ -202,7 +202,7 @@ object ConfigManager {
                                 )
                                 card[it] = newCard
                             }
-                            "任意性别卡" -> {
+                            "性别卡" -> {
                                 val poke: MutableList<Species> = mutableListOf()
                                 configurationSection.getStringList("use.poke").map {
                                     poke.add(YuSpecies.getSpecies(it))
