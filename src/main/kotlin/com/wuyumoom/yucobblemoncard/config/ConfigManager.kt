@@ -13,6 +13,7 @@ import com.wuyumoom.yucore.api.ItemStackAPI
 import com.wuyumoom.yucore.api.Message
 import com.wuyumoom.yucore.api.pokemon.base.YuSpecies
 import com.wuyumoom.yucore.file.view.ViewConfiguration
+import org.bukkit.Material
 import org.bukkit.configuration.file.YamlConfiguration
 
 object ConfigManager {
@@ -22,14 +23,22 @@ object ConfigManager {
     val viewConfigurationMap: MutableMap<String, ViewConfiguration> = HashMap()
     var message: Message = Message(config)
 
+    lateinit var movesGUIDefaultID : Material
+
     fun load() {
         config.getStringList("tip").map {
             tip.add(BukkitAPI.onReplace(it))
         }
         FileAPI.folderFiles(YuCobblemonCard.INSTANCE, "view", YuCobblemonCard.pluginFile).forEach {
             val replace = it.name.replace(".yml", "")
-            val viewConfiguration = ViewConfiguration(YamlConfiguration.loadConfiguration(it))
+            val loadConfiguration = YamlConfiguration.loadConfiguration(it)
+            val viewConfiguration = ViewConfiguration(loadConfiguration)
             viewConfigurationMap[replace] = viewConfiguration
+            if (replace == "MovesGUI"){
+                val string = loadConfiguration.getString("defaultID")?: "STICK"
+                var material = Material.getMaterial( string)
+                movesGUIDefaultID = material ?: Material.STICK
+            }
         }
         FileAPI.folderFiles(YuCobblemonCard.INSTANCE, "card", YuCobblemonCard.pluginFile).forEach {
             val loadConfiguration = YamlConfiguration.loadConfiguration(it)
@@ -143,70 +152,6 @@ object ConfigManager {
                                 )
                                 card[it] = newCard
                             }
-//                            "任意个体值清空卡"->{
-//                                val poke: MutableList<Species> = mutableListOf()
-//                                configurationSection.getStringList("use.poke").map {
-//                                    poke.add(YuSpecies.getSpecies(it))
-//                                }
-//                                val newCard = StateCard(
-//                                    type = cardType,
-//                                    name = it,
-//                                    item = ItemStackAPI.createItem(configurationSection, true),
-//                                    filter = UseState.valueOf((configurationSection.getString("use.filter") ?: "").uppercase()),
-//                                    poke = poke,
-//                                    pokeState = PokeState.IVS,
-//                                    isAdd= false
-//                                )
-//                                card[it] = newCard
-//                            }
-//                            "任意努力值清空卡"->{
-//                                val poke: MutableList<Species> = mutableListOf()
-//                                configurationSection.getStringList("use.poke").map {
-//                                    poke.add(YuSpecies.getSpecies(it))
-//                                }
-//                                val newCard = StateCard(
-//                                    type = cardType,
-//                                    name = it,
-//                                    item = ItemStackAPI.createItem(configurationSection, true),
-//                                    filter = UseState.valueOf((configurationSection.getString("use.filter") ?: "").uppercase()),
-//                                    poke = poke,
-//                                    pokeState = PokeState.EVS,
-//                                    isAdd= false
-//                                )
-//                                card[it] = newCard
-//                            }
-//                            "任意努力值卡"->{
-//                                val poke: MutableList<Species> = mutableListOf()
-//                                configurationSection.getStringList("use.poke").map {
-//                                    poke.add(YuSpecies.getSpecies(it))
-//                                }
-//                                val newCard = StateCard(
-//                                    type = cardType,
-//                                    name = it,
-//                                    item = ItemStackAPI.createItem(configurationSection, true),
-//                                    filter = UseState.valueOf((configurationSection.getString("use.filter") ?: "").uppercase()),
-//                                    poke = poke,
-//                                    pokeState = PokeState.EVS,
-//                                    isAdd= true
-//                                )
-//                                card[it] = newCard
-//                            }
-//                            "任意个体值卡"->{
-//                                val poke: MutableList<Species> = mutableListOf()
-//                                configurationSection.getStringList("use.poke").map {
-//                                    poke.add(YuSpecies.getSpecies(it))
-//                                }
-//                                val newCard = StateCard(
-//                                    type = cardType,
-//                                    name = it,
-//                                    item = ItemStackAPI.createItem(configurationSection, true),
-//                                    filter = UseState.valueOf((configurationSection.getString("use.filter") ?: "").uppercase()),
-//                                    poke = poke,
-//                                    pokeState = PokeState.IVS,
-//                                    isAdd= true
-//                                )
-//                                card[it] = newCard
-//                            }
                             "6v卡"->{
                                 val poke: MutableList<Species> = mutableListOf()
                                 configurationSection.getStringList("use.poke").map {

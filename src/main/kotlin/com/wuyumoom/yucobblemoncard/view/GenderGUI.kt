@@ -63,13 +63,6 @@ class GenderGUI(
                 item.amount--
                 return
             }
-            "性别无"->{
-                pokemon.species.moves
-                pokemon.gender = Gender.GENDERLESS
-                ConfigManager.message.sendMessage("use", player)
-                item.amount--
-                return
-            }
         }
     }
 

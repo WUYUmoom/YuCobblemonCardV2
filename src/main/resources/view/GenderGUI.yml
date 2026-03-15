@@ -37,12 +37,6 @@ Button:
     slot: 11
     lore:
       - "&a ▶ &b点击更改性别为: &f性别雄"
-  性别无:
-    name: "&6性别无"
-    id: "COBBLEMON_EXP_SHARE"
-    slot: 12
-    lore:
-      - "&a ▶ &b点击更改性别为: &f性别无"
   装饰:
     name: "&b装饰"
     id: "GLASS_PANE"

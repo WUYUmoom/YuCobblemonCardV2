@@ -12,9 +12,11 @@ import com.wuyumoom.yucore.api.ItemStackAPI
 import com.wuyumoom.yucore.api.pokemon.PokemonAPI
 import com.wuyumoom.yucore.api.pokemon.base.YuMove
 import com.wuyumoom.yucore.api.pokemon.base.YuSprite
+import com.wuyumoom.yucore.file.view.Button
 import com.wuyumoom.yucore.file.view.ViewConfiguration
 import com.wuyumoom.yucore.view.AbstractUI
 import org.bukkit.Bukkit
+import org.bukkit.Material
 import org.bukkit.entity.Player
 import org.bukkit.event.inventory.InventoryClickEvent
 import org.bukkit.inventory.ItemStack
@@ -88,19 +90,21 @@ class MovesGUI(
                     return
                 }
                 val moves = moveList[index + size]
-                inventory.setItem(slot, setMoveItem(button.itemStack.clone(), moves))
+                inventory.setItem(slot, setMoveItem(button.itemStack.clone(), moves,button))
             }
         } else {
             pokemon.moveSet.forEach {
                 index++
-                val nbt = ItemStackAPI.setNBT(setMoveItem(button.itemStack.clone(), it.template), "slot", index.toString())
+                val nbt =
+                    ItemStackAPI.setNBT(setMoveItem(button.itemStack.clone(), it.template,button), "slot", index.toString())
                 inventory.setItem(button.slot[index], nbt)
             }
         }
     }
 
-    private fun setMoveItem(item: ItemStack, move: MoveTemplate): ItemStack {
+    private fun setMoveItem(item: ItemStack, move: MoveTemplate,button: Button): ItemStack {
         val clone = item.clone()
+        clone.type =getMaterial(move,button)
         val itemMeta = clone.itemMeta ?: return clone
         val onGetTranslatePath = PokemonAPI.onGetTranslatePath(move.displayName)
         itemMeta.setDisplayName(itemMeta.displayName.replace("%Moves%", onGetTranslatePath))
@@ -110,6 +114,12 @@ class MovesGUI(
         clone.itemMeta = itemMeta
         ItemStackAPI.setNBT(clone, "Moves", move.name)
         return clone
+    }
+
+    private fun getMaterial(move: MoveTemplate,button: Button):Material {
+        val id = button.id.replace("%Moves%", move.name).uppercase()
+        val material = Material.getMaterial(id)
+        return material ?: ConfigManager.movesGUIDefaultID
     }
 
     private fun setItem(slot: IntArray, itemStack: ItemStack) {
@@ -145,15 +155,16 @@ class MovesGUI(
                 MovesGUI(player, configuration, pokemon, item, card, page + 1, this.int).openInventory(player)
                 return
             }
+
             "Moves" -> {
                 val nbt1 = ItemStackAPI.getNBT(currentItem, "slot")
-                if (nbt1 == null  || nbt1.isEmpty()) {
+                if (nbt1 == null || nbt1.isEmpty()) {
                     val movesName = ItemStackAPI.getNBT(currentItem, "Moves")
-                    this.int?.let { pokemon.moveSet.setMove(it,YuMove.getMove(movesName)) }
+                    this.int?.let { pokemon.moveSet.setMove(it, YuMove.getMove(movesName)) }
                     item.amount--
                     closeInventory()
-                    ConfigManager.message.sendMessage("use",player)
-                }else{
+                    ConfigManager.message.sendMessage("use", player)
+                } else {
                     MovesGUI(player, configuration, pokemon, item, card, page + 1, nbt1.toInt()).openInventory(player)
                 }
             }
