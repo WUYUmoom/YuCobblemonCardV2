@@ -31,11 +31,11 @@ class PokeBallGUI (
 ) {
     override fun draw() {
         inventory.clear()
-        configuration.button.forEach {
-            if (it.key == "PokeBall"||it.key == "Pixel"){
-                return@forEach
+        for (entry in configuration.button) {
+            if (entry.key == "PokeBall"||entry.key == "Pixel"){
+                continue
             }
-            setItem(it.value.slot, it.value.itemStack)
+            setItem(entry.value.slot, entry.value.itemStack)
         }
         val pixel = configuration.button["Pixel"] ?: return
         setItem(pixel.slot, ItemStackAPI.onSetItemMeta(YuSprite.getSpriteItem(pokemon), pixel, pokemon))

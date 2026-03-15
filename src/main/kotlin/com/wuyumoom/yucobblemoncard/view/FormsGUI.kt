@@ -22,29 +22,29 @@ class FormsGUI (
 ) {
     override fun draw() {
         inventory.clear()
-        configuration.button.forEach {
-            if (it.key == "Pixel" || it.key == "Forms"){
-                return@forEach
+        for (entry in configuration.button) {
+            if (entry.key == "Pixel" || entry.key == "Forms"){
+                continue
             }
-            setItem(it.value.slot, it.value.itemStack)
+            setItem(entry.value.slot, entry.value.itemStack)
         }
         val pixel = configuration.button["Pixel"]?: return
         setItem(pixel.slot,ItemStackAPI.onSetItemMeta(YuSprite.getSpriteItem(pokemon),pixel, pokemon))
         val button = configuration.button["Forms"] ?: return
         var index = -1
-        pokemon.species.forms.forEach {
-            if (pokemon.form.formOnlyShowdownId() == it.formOnlyShowdownId()){
-                return@forEach
+        for (data in pokemon.species.forms) {
+            if (data.formOnlyShowdownId().contains("mega")||pokemon.form.formOnlyShowdownId() == data.formOnlyShowdownId()){
+                continue
             }
             index++
-            val create = it.species.create(10)
-            create.form = it
-            create.forcedAspects = it.aspects.toSet()
+            val create = data.species.create(10)
+            create.form = data
+            create.forcedAspects = data.aspects.toSet()
             create.updateAspects()
             create.updateForm()
             val spriteItem = YuSprite.getSpriteItem(create)
             val onSetItemMeta = ItemStackAPI.onSetItemMeta(spriteItem, button)
-            inventory.setItem(button.slot[index],setFormsItem(onSetItemMeta, it))
+            inventory.setItem(button.slot[index],setFormsItem(onSetItemMeta, data))
         }
     }
 

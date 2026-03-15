@@ -21,11 +21,11 @@ class GenderGUI(
 ) {
     override fun draw() {
         inventory.clear()
-        configuration.button.forEach {
-            if (it.key == "Pixel"){
-                return@forEach
+        for (entry in configuration.button) {
+            if (entry.key == "Pixel"){
+                continue
             }
-            setItem(it.value.slot, it.value.itemStack)
+            setItem(entry.value.slot, entry.value.itemStack)
         }
         val button = configuration.button["Pixel"]?: return
         setItem(button.slot,ItemStackAPI.onSetItemMeta(YuSprite.getSpriteItem(pokemon),button, pokemon))

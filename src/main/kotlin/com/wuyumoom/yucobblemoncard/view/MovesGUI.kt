@@ -34,11 +34,11 @@ class MovesGUI(
 ) {
     override fun draw() {
         inventory.clear()
-        configuration.button.forEach {
-            if (it.key == "Pixel" || it.key == "Moves" || it.key == "PokeMoves") {
-                return@forEach
+        for (entry in configuration.button) {
+            if (entry.key == "Pixel"|| entry.key == "Moves" || entry.key == "PokeMoves"){
+                continue
             }
-            setItem(it.value.slot, it.value.itemStack)
+            setItem(entry.value.slot, entry.value.itemStack)
         }
         val pixel = configuration.button["Pixel"] ?: return
         setItem(pixel.slot, ItemStackAPI.onSetItemMeta(YuSprite.getSpriteItem(pokemon), pixel, pokemon))
